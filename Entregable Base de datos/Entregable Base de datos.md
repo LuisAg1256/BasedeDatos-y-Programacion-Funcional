@@ -1,12 +1,75 @@
 # BasedeDatos
-## 1. Tabla: Tabla de datos del proyecto integrador
+# Entregable 3.1
+## **1. Análisis del dataset**
+
+El dataset proporcionado contiene información detallada sobre películas, actores, equipos de producción, calificaciones de usuarios y palabras clave relacionadas. Este análisis se enfoca en comprender la estructura, calidad y utilidad de los datos para la gestión cinematográfica.
+
+### **Características principales:**
+- **Volumen de datos:** El dataset incluye múltiples tablas interrelacionadas, cada una diseñada para representar un aspecto específico del ecosistema cinematográfico.
+- **Diversidad de datos:** Contiene datos categóricos, numéricos, booleanos y textuales que abarcan desde características técnicas (duración, presupuesto, ganancias) hasta atributos subjetivos (popularidad, calificaciones de usuarios).
+- **Complejidad estructural:** Varios campos almacenan información en formato JSON, lo que requiere transformaciones adicionales para su análisis o integración en sistemas relacionales.
+
+### **Calidad del dataset:**
+1. **Consistencia:** Algunos campos, como `genres`, `production_companies` y `spoken_languages`, están en formato JSON, lo que puede dificultar su procesamiento y análisis directo en bases relacionales.
+2. **Integridad:** El dataset parece contener valores nulos o vacíos en campos clave como `budget`, `revenue` y `runtime`, lo que podría afectar los análisis.
+3. **Precisión:** Los valores almacenados en algunos campos, como `popularity` y `vote_average`, deben ser revisados para garantizar que sigan un formato y escala adecuados.
+
+### **Oportunidades de mejora:**
+- Normalización de tablas para reducir redundancias y mejorar la integridad referencial.
+- Limpieza de datos nulos o inconsistentes, especialmente en campos esenciales para análisis financieros (`budget`, `revenue`).
+- Transformación de campos JSON a estructuras tabulares para facilitar consultas complejas.
+
+---
+
+## **2. Descripción general del dataset**
+
+El dataset está diseñado para gestionar y analizar datos relacionados con películas y su ecosistema. A continuación, se presentan las características generales:
+
+### **Contenido:**
+- **Películas:** Información básica como títulos, fechas de lanzamiento, géneros, duración, idioma original, presupuesto y ganancias.
+- **Colecciones:** Agrupaciones de películas relacionadas, con datos como identificador, nombre y rutas de imágenes asociadas.
+- **Elenco y equipo técnico:** Detalles sobre actores, personajes, roles técnicos y géneros.
+- **Producción:** Información sobre compañías y países relacionados con la creación de las películas.
+- **Idiomas y palabras clave:** Idiomas originales y traducidos, además de palabras clave que ayudan en la clasificación de películas.
+- **Calificaciones y popularidad:** Puntuaciones de usuarios y métricas de popularidad para medir la aceptación de las películas.
+
+### **Estructura:**
+El dataset está organizado en tablas relacionales, incluyendo:
+- **`Collection`**: Información sobre colecciones de películas.
+- **`Pelicula`**: Detalles individuales de cada película.
+- **`PaginaPelicula`**: URLs y detalles de páginas web relacionadas.
+- **`Language`**: Idiomas disponibles.
+- **`Production Companies` y `Production Countries`**: Información sobre las compañías productoras y países asociados.
+- **`Elenco` y `Crew`**: Actores y equipo técnico relacionados con cada película.
+- **`Rating`**: Opiniones y calificaciones de usuarios.
+- **`Palabras Clave`**: Términos asociados con cada película.
+
+### **Objetivo del dataset:**
+El propósito principal es proporcionar una base de datos robusta para el análisis y gestión del contenido cinematográfico, permitiendo:
+- Estudio de métricas de popularidad y recaudación.
+- Identificación de patrones de producción y consumo.
+- Gestión eficiente de datos relacionados con películas, actores y equipos técnicos.
+
+## 3. Analisis descriptivo 
+| **Nombre del Dataset**                       | Dataset de películas.                                      |
+|----------------------------------------------|-----------------------------------------------------------------------------|
+| **Objetivo del Dataset**                     | Gestionar y analizar información sobre películas, actores, equipos técnicos, calificaciones y palabras clave para estudios de popularidad, rentabilidad y otros análisis relacionados con la industria cinematográfica. |
+| **Cuántas películas están incluidas**        | **Por determinar** (se debe contar el total de registros únicos en la tabla `Pelicula`). |
+| **Cuáles son los géneros más comunes y menos presentados** | Los géneros más comunes y menos presentados pueden analizarse explorando el campo `genres` en la tabla `Pelicula` y calculando la frecuencia de cada género. |
+| **Cuántas películas se producen por año**    | Se puede obtener al agrupar los datos por año usando el campo `release_date`. Esto permite identificar tendencias anuales en la producción cinematográfica. |
+| **Se define si hay más de un director de películas incluido** | Sí, se puede verificar revisando los datos en la tabla `Crew` donde el campo `Job` es "Director". |
+| **Cuáles otros datos o metadatos se incluyen en el Dataset** | Información sobre presupuesto, recaudación, duración, idiomas, países de producción, palabras clave, calificaciones de usuarios, popularidad y colecciones asociadas. |
+| **Qué información podría analizar con este Dataset (al menos 3 ideas)** | 1. Relación entre presupuesto y recaudación. <br> 2. Comparación de géneros más populares por región o año. <br> 3. Análisis de tendencias en duración de películas a lo largo de los años. |
+| **Con qué datos de películas que encuentran en sitios como - Netflix, IMDB, TMDB- se relaciona el dataset** | Se relaciona con métricas como `popularity`, `vote_average`, `genres`, `cast`, `crew`, y otros metadatos comunes en plataformas como IMDb y TMDB. |
+
+## 4. Descripcion de datos del dataset 
 
 | Nombre del Campo | Tipo de Dato | Propósito                                                   | Observaciones                      |
 |------------------|--------------|-------------------------------------------------------------|------------------------------------|
 | Adult               | boolean      | Identifica si la pelicula es para adultos o no.          |                 |
-| belong_to_collection        | String       | Identifica a que grupo de peliculas pertenece una pelicula  | Puede contener URLs y ademas es un JSON|
+| belong_to_collection        | JSON       | Identifica a que grupo de peliculas pertenece una pelicula  | Puede contener URLs y ademas es un JSON|
 | budget           | Double       | Presupuesto de la pelicula                                    |                                    |
-| genres      | String       |  Género o categorías asociadas.   | Puede contener URLs y ademas es un JSON               |
+| genres      | JSON       |  Género o categorías asociadas.   | Puede contener URLs y ademas es un JSON               |
 | homepage      | String       | Ruta de la pelicula a una pagina web con informacion sobre ella  | Puede contener URLs               |
 | id      | String       | Identificador de la pelicula     |          |
 | imdb_id      | String       | Identificador de la base de datos de la pelicula     |              |
@@ -15,22 +78,22 @@
 | overview      | String       | Descripcion de la pelicula                      |              |
 | popularity      | String       | Popularidad de la pelicula                            |              |
 | poster_Path      | String       | Ruta del poster de la coleccion |          |
-| production_companies      | String       | Compañias productoras de la pelicula          | Es un archivo JSON              |
-| production_countries      | String       | Pais o paises en el que se produce la pelicula                           |  Es un archivo JSON          |
+| production_companies      | JSON       | Compañias productoras de la pelicula          | Es un archivo JSON              |
+| production_countries      | JSON       | Pais o paises en el que se produce la pelicula                           |  Es un archivo JSON          |
 | release_date      | String       | Fecha de lanzamiento de la pelicula        |              |
 | revenue      | String       | Ganancias de la pelicula                           |             |
 | runtime      | String       | Duracion de la pelicula                          |               |
-| spoken_languagues      | String       | Idiomas al que esta doblada la pelicula  |  Es un archivo JSON            |
+| spoken_languagues      | JSON       | Idiomas al que esta doblada la pelicula  |  Es un archivo JSON            |
 | status      | String       | Estado de la pelicula                         |              | 
 | tagline      | String       | Representacion leve de la pelicula                          |     |
 | title      | String       | Ruta del póster de la colección.                            |   |
 | video      | boolean       | Si contiene o no un video                            |                |
 | vote_average      | Double       | Promedio de votos                          |            |
 | vote_count      | Int       | Conteo de votos                          |              |
-| keywords      | String       | Las palabras clave de la pelicula  | Es un archivo JSON             |
-| cast      | String       | Los actores que intervienen dentro de la pelicula con su respectivo orden, identificadores y personaje al que interpretan  | Es un archivo JSON                |
-| crew      | String       | El equipo tecnico detras de la pelicula que ayuda en su produccion y desarrollo   | Es un archivo JSON               |
-| ratings      | String       | La validacion y aceptacion por parte de los usuarios de la pelicula   | Es un archivo JSON              |
+| keywords      | JSON       | Las palabras clave de la pelicula  | Es un archivo JSON             |
+| cast      | JSON       | Los actores que intervienen dentro de la pelicula con su respectivo orden, identificadores y personaje al que interpretan  | Es un archivo JSON                |
+| crew      | JSON       | El equipo tecnico detras de la pelicula que ayuda en su produccion y desarrollo   | Es un archivo JSON               |
+| ratings      | JSON       | La validacion y aceptacion por parte de los usuarios de la pelicula   | Es un archivo JSON              |
 ## 2. Las diferentes tablas creadas a partir del diseño conecptual
 Diccionario de Datos
 ### Tabla: Collection
