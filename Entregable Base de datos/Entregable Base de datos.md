@@ -96,98 +96,132 @@ El propósito principal es proporcionar una base de datos robusta para el análi
 | ratings      | JSON       | La validacion y aceptacion por parte de los usuarios de la pelicula   | Es un archivo JSON              |
 # Entregable 3.2
 ## 1. Modelo Conceptual
+![image](https://github.com/user-attachments/assets/ee8b2921-0af7-4069-98b3-97dbc6c85faa)
+https://drive.google.com/file/d/1iHuynMHtC4v0ab8QwlArMpIis2WBnkCV/view?usp=sharing
+## 2. Diccionario de Datos
+### **1. Collection**
 
-## 2. Las diferentes tablas creadas a partir del diseño conecptual
-Diccionario de Datos
-### Tabla: Collection
-•	ID: Integer. Identificador único de la colección.
+| Atributo      | Tipo de Dato | Descripción                                 |
+|---------------|--------------|---------------------------------------------|
+| Id            | INTEGER      | Identificador único de la colección.       |
+| Nombre        | VARCHAR      | Nombre de la colección.                    |
+| back_Path     | VARCHAR      | Ruta de la imagen de fondo de la colección.|
+| poster_Path   | VARCHAR      | Ruta del póster de la colección.           |
 
-•	back_Path: String. Ruta de la imagen de fondo asociada a la colección.
+---
 
-•	Nombre: String. Nombre de la colección.
+### **2. Película**
 
-•	poster_Path: String. Ruta del póster de la colección.
+| Atributo          | Tipo de Dato | Descripción                                  |
+|-------------------|--------------|----------------------------------------------|
+| Id                | INTEGER      | Identificador único de la película.          |
+| Title             | VARCHAR      | Título de la película.                       |
+| Descripción       | TEXT         | Sinopsis o descripción de la película.       |
+| Fecha_Lanzamiento | DATE         | Fecha de estreno.                            |
+| Estado            | VARCHAR      | Estado de la película (ej. lanzada, en producción). |
+| Popularity        | FLOAT        | Nivel de popularidad de la película.         |
+| Duracion          | INTEGER      | Duración en minutos.                         |
+| Ganancia          | FLOAT        | Ganancia generada por la película.           |
+| Eslógan           | VARCHAR      | Frase publicitaria de la película.           |
+| Trailer (Video)   | VARCHAR      | Enlace al video del tráiler.                 |
+| Imdb_id           | VARCHAR      | Identificador de la película en IMDb.        |
+| Adult             | BOOLEAN      | Indica si es contenido para adultos.         |
 
-### Tabla: Pelicula
-•	Id: Integer. Identificador único de la película.
+---
 
-•	Adult: Boolean. Indica si la película es para público adulto.
+### **3. Usuarios**
 
-•	Title: String. Título de la película.
+| Atributo     | Tipo de Dato | Descripción                                    |
+|--------------|--------------|------------------------------------------------|
+| User_Id      | INTEGER      | Identificador único del usuario.              |
+| TimeStamp    | TIMESTAMP    | Fecha y hora de la interacción del usuario.    |
+| vote_count   | INTEGER      | Número de votos emitidos por el usuario.       |
+| vote_average | FLOAT        | Promedio de votos del usuario.                |
 
-•	Popularity: Float. Indicador de popularidad basado en métricas específicas.
+---
 
-•	Fecha_Lanzamiento: Date. Fecha de estreno de la película.
+### **4. Palabras Clave**
 
-•	Descripcion: Text. Resumen o sinopsis de la película.
+| Atributo | Tipo de Dato | Descripción                              |
+|----------|--------------|------------------------------------------|
+| Id       | INTEGER      | Identificador único de la palabra clave.|
+| Name     | VARCHAR      | Nombre de la palabra clave.             |
 
-•	Estado: String. Estado de la película (por ejemplo, "Lanzada", "En producción").
+---
 
-•	Trailer (Video): Boolean. Indica si hay un tráiler disponible.
+### **5. Production Companies**
 
-•	Imdb_id: String. Identificador único en la base de datos IMDb.
+| Atributo | Tipo de Dato | Descripción                                    |
+|----------|--------------|------------------------------------------------|
+| Id       | INTEGER      | Identificador único de la compañía.           |
+| Name     | VARCHAR      | Nombre de la compañía productora.             |
 
-•	Ganancia: Float. Recaudación total de la película.
+---
 
-•	Eslogan: String. Frase promocional de la película.
+### **6. Actores**
 
-•	Genre: String. Género o categorías asociadas a la película.
+| Atributo     | Tipo de Dato | Descripción                                |
+|--------------|--------------|--------------------------------------------|
+| Id_Actor     | INTEGER      | Identificador único del actor.            |
+| Name_Actor   | VARCHAR      | Nombre del actor.                         |
+| Profile_Path | VARCHAR      | Ruta de la imagen del perfil del actor.   |
 
-•	Duracion: Integer. Duración de la película en minutos.
-### Tabla: PaginaPelicula
-•	Link: String. URL de la página web relacionada con la película.
+---
 
-•	Nombre: String. Nombre de la página.
+### **7. Staff**
 
-•	Propietario: String. Propietario o entidad responsable de la página.
-### Tabla: Language
-•	Id_ISO: String. Código ISO del idioma.
+| Atributo     | Tipo de Dato | Descripción                                 |
+|--------------|--------------|---------------------------------------------|
+| Id           | INTEGER      | Identificador único del miembro del staff. |
+| Name         | VARCHAR      | Nombre del miembro del staff.              |
+| Profile_Path | VARCHAR      | Ruta de la imagen del perfil del staff.    |
 
-•	Name: String. Nombre del idioma.
+---
 
-### Tabla: Production Companies
-•	Id: Integer. Identificador único de la compañía productora.
+### **8. Género**
 
-•	Name: String. Nombre de la compañía productora.
-### Tabla: Elenco
-•	Gender: Integer. Género del actor (1: Mujer, 2: Hombre, 0: No especificado).
+| Atributo | Tipo de Dato | Descripción                       |
+|----------|--------------|-----------------------------------|
+| Id       | INTEGER      | Identificador único del género.  |
+| Nombre   | VARCHAR      | Nombre del género.               |
 
-•	Id_Actor: Integer. Identificador único del actor.
+---
 
-•	Character: String. Nombre del personaje interpretado por el actor.
+### **9. Language**
 
-•	Profile_Path: String. Ruta de la imagen del perfil del actor.
+| Atributo | Tipo de Dato | Descripción                           |
+|----------|--------------|---------------------------------------|
+| Id_ISO   | VARCHAR      | Código ISO del idioma.               |
+| Name     | VARCHAR      | Nombre del idioma.                   |
 
-•	Cast_id: Integer. Identificador único del elenco.
+---
 
-•	Name_Actor: String. Nombre del actor.
+### **10. Production Countries**
 
-### Tabla: Production Countries
-•	Id_: String. Código o identificador único del país.
+| Atributo | Tipo de Dato | Descripción                             |
+|----------|--------------|-----------------------------------------|
+| Id_ISO   | VARCHAR      | Código ISO del país.                   |
+| Name     | VARCHAR      | Nombre del país de producción.         |
 
-•	Name: String. Nombre del país.
-### Tabla: Crew
-•	Profile_Path: String. Ruta de la imagen de perfil del miembro del equipo.
+---
 
-•	Credit_id: String. Identificador único del crédito.
+### **11. Job**
 
-•	Department: String. Departamento al que pertenece el miembro del equipo (por ejemplo, "Dirección", "Producción").
+| Atributo | Tipo de Dato | Descripción                              |
+|----------|--------------|------------------------------------------|
+| Id       | INTEGER      | Identificador único del trabajo.         |
+| Name     | VARCHAR      | Nombre del trabajo (ej. director, editor).|
 
-•	Job: String. Puesto específico desempeñado en la producción.
+---
 
-•	Name: String. Nombre del miembro del equipo.
+### **12. Department**
 
-•	Gender: Integer. Género del miembro del equipo (1: Mujer, 2: Hombre, 0: No especificado).
-### Tabla: Rating
-•	User_Id: Integer. Identificador único del usuario que realizó la calificación.
+| Atributo | Tipo de Dato | Descripción                                  |
+|----------|--------------|----------------------------------------------|
+| Id       | INTEGER      | Identificador único del departamento.        |
+| Nombre   | VARCHAR      | Nombre del departamento (ej. dirección, arte).|
 
-•	Rating: Float. Puntuación asignada a la película.
 
-•	TimeStamp: DateTime. Fecha y hora en que se realizó la calificación.
-### Tabla: Palabras Clave
-•	Id: Integer. Identificador único de la palabra clave.
-
-•	Name: String. Nombre o descripción de la palabra clave.
 ## 3. Descripcion del problema 
 El sistema está diseñado para gestionar de manera eficiente los datos asociados con una base de películas. Este incluye información detallada sobre las películas, como su título, género, popularidad, fecha de lanzamiento, duración, estado y eslogan. Además, almacena datos sobre colecciones, idiomas disponibles, países de producción, compañías productoras y páginas web relacionadas.
 
