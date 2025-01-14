@@ -94,6 +94,9 @@ El propósito principal es proporcionar una base de datos robusta para el análi
 | cast      | JSON       | Los actores que intervienen dentro de la pelicula con su respectivo orden, identificadores y personaje al que interpretan  | Es un archivo JSON                |
 | crew      | JSON       | El equipo tecnico detras de la pelicula que ayuda en su produccion y desarrollo   | Es un archivo JSON               |
 | ratings      | JSON       | La validacion y aceptacion por parte de los usuarios de la pelicula   | Es un archivo JSON              |
+# Entregable 3.2
+## 1. Modelo Conceptual
+
 ## 2. Las diferentes tablas creadas a partir del diseño conecptual
 Diccionario de Datos
 ### Tabla: Collection
