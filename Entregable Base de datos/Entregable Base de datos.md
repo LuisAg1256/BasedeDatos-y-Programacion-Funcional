@@ -1,6 +1,6 @@
 # BasedeDatos
 # Entregable 3.1
-## **1. Análisis del dataset**
+## **3.1.1. Análisis del dataset**
 
 El dataset proporcionado contiene información detallada sobre películas, actores, equipos de producción, calificaciones de usuarios y palabras clave relacionadas. Este análisis se enfoca en comprender la estructura, calidad y utilidad de los datos para la gestión cinematográfica.
 
@@ -21,7 +21,7 @@ El dataset proporcionado contiene información detallada sobre películas, actor
 
 ---
 
-## **2. Descripción general del dataset**
+## **3.1.2. Descripción general del dataset**
 
 El dataset está diseñado para gestionar y analizar datos relacionados con películas y su ecosistema. A continuación, se presentan las características generales:
 
@@ -50,7 +50,7 @@ El propósito principal es proporcionar una base de datos robusta para el análi
 - Identificación de patrones de producción y consumo.
 - Gestión eficiente de datos relacionados con películas, actores y equipos técnicos.
 
-## 3. Analisis descriptivo 
+## 3.1.3. Analisis descriptivo 
 | **Nombre del Dataset**                       | Dataset de películas.                                      |
 |----------------------------------------------|-----------------------------------------------------------------------------|
 | **Objetivo del Dataset**                     | Gestionar y analizar información sobre películas, actores, equipos técnicos, calificaciones y palabras clave para estudios de popularidad, rentabilidad y otros análisis relacionados con la industria cinematográfica. |
@@ -62,7 +62,7 @@ El propósito principal es proporcionar una base de datos robusta para el análi
 | **Qué información podría analizar con este Dataset (al menos 3 ideas)** | 1. Relación entre presupuesto y recaudación. <br> 2. Comparación de géneros más populares por región o año. <br> 3. Análisis de tendencias en duración de películas a lo largo de los años. |
 | **Con qué datos de películas que encuentran en sitios como - Netflix, IMDB, TMDB- se relaciona el dataset** | Se relaciona con métricas como `popularity`, `vote_average`, `genres`, `cast`, `crew`, y otros metadatos comunes en plataformas como IMDb y TMDB. |
 
-## 4. Descripcion de datos del dataset 
+## 3.1.4. Descripcion de datos del dataset 
 
 | Nombre del Campo | Tipo de Dato | Propósito                                                   | Observaciones                      |
 |------------------|--------------|-------------------------------------------------------------|------------------------------------|
@@ -95,10 +95,12 @@ El propósito principal es proporcionar una base de datos robusta para el análi
 | crew      | JSON       | El equipo tecnico detras de la pelicula que ayuda en su produccion y desarrollo   | Es un archivo JSON               |
 | ratings      | JSON       | La validacion y aceptacion por parte de los usuarios de la pelicula   | Es un archivo JSON              |
 # Entregable 3.2
-## 1. Modelo Conceptual
+## 3.2.1.1. Modelo Conceptual
 ![image](https://github.com/user-attachments/assets/ee8b2921-0af7-4069-98b3-97dbc6c85faa)
 https://drive.google.com/file/d/1iHuynMHtC4v0ab8QwlArMpIis2WBnkCV/view?usp=sharing
-## 2. Diccionario de Datos
+## 3.2.1.2. Diseño logico
+https://drive.google.com/file/d/1hBtUi1eP1VNWInjAhT3jOivVAEkgsgf8/view?usp=sharing 
+## 3.2.2. Diccionario de Datos
 ### **1. Collection**
 
 | Atributo      | Tipo de Dato | Descripción                                 |
@@ -222,7 +224,7 @@ https://drive.google.com/file/d/1iHuynMHtC4v0ab8QwlArMpIis2WBnkCV/view?usp=shari
 | Nombre   | VARCHAR      | Nombre del departamento (ej. dirección, arte).|
 
 
-## 3. Descripcion del problema 
+## 3.2.3. Descripcion del problema 
 El sistema está diseñado para gestionar de manera eficiente los datos asociados con una base de películas. Este incluye información detallada sobre las películas, como su título, género, popularidad, fecha de lanzamiento, duración, estado y eslogan. Además, almacena datos sobre colecciones, idiomas disponibles, países de producción, compañías productoras y páginas web relacionadas.
 
 El sistema también administra la participación de actores (elenco) y del equipo técnico (crew), con detalles como sus roles, perfiles y género. Se incluye un módulo para gestionar calificaciones y opiniones de los usuarios, lo que permite realizar análisis de popularidad y percepción.
